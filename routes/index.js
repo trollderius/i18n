@@ -99,6 +99,10 @@ function getFiles(paths, callback, fileNumber) {
         callback(jsonFiles);
         return;
     }
+    
+    if(paths[fileNumber][0] == "."){
+        getFiles(paths, callback, fileNumber);
+    }
 
     getJSON("public/json/" + paths[fileNumber], function (data) {
         //parse
@@ -106,7 +110,7 @@ function getFiles(paths, callback, fileNumber) {
             data = JSON.parse(data);
         } catch (e) {
             console.log(e);
-            callback(false, e);
+            getFiles(paths, callback, fileNumber);
             return;
         }
         data = getTranslationArray(data);
