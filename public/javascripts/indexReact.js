@@ -123,7 +123,8 @@ for (var i = 0; i < resetButtons.length; i++) {
         var lang = this.getAttribute("lang");
 
         return confirm('Are you sure?', {
-            description: 'Would you like to reset this lang file?',
+            //description: 'Would you like to reset this lang file?',
+            description: 'Would you like to remove this files?',
             confirmLabel: 'Yes',
             abortLabel: 'No'
         }).then((function (_this) {

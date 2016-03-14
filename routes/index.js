@@ -12,10 +12,16 @@ router.get('/', function (req, res) {
 
     var error = "";
     var files = fs.readdirSync("public/json");
+    console.log("files: " + JSON.stringify(files));
     getFiles(files, function (jsonArray) {
+        console.log("JSON ARRAY: ");
+        console.log(jsonArray);
 
         //original
-        getJSON("public/json/origin.json", function (origin, err) {            
+        getJSON("public/json/~origin.json", function (origin, err) {
+            console.log("ORIGIN: ");
+            console.log(origin);
+
             if (err) {
                 console.log("error:  " + err);
                 error += err;
@@ -27,6 +33,8 @@ router.get('/', function (req, res) {
                     origin = JSON.parse(origin);
                 } catch (e) {
                     console.log(e);
+                    error += " Can't parse json file! " + e;
+                    res.render('index', {error: error});
                     return;
                 }
                 //sort kind of file
@@ -51,9 +59,9 @@ function getJSON(url, callback) {
         if (data) {
             callback(data);
         } else {
-            var err = "no data or missing file: " + url;
-            console.log(err + " (routes/index.js)");
-            callback(false, err);
+            var err = "No files to compare, please upload files.";
+            console.log(err + " on " + url + " (routes/index.js)");
+            callback("", err);
         }
     });
 }
@@ -64,7 +72,9 @@ function getTranslationArray(data) {
     }
     var arr = {};
     for (var i = 0; i < data.length; i++) {
-        arr[data[i].id] = data[i].translation;
+        if (data[i].id) {
+            arr[data[i].id] = data[i].translation;
+        }
     }
     return arr;
 }
@@ -85,6 +95,7 @@ function getFiles(paths, callback, fileNumber) {
     }
 
     if (!paths[fileNumber]) {
+        console.log("!paths[fileNumber] on " + fileNumber + " index")
         callback(jsonFiles);
         return;
     }
@@ -100,15 +111,20 @@ function getFiles(paths, callback, fileNumber) {
         }
         data = getTranslationArray(data);
 
-        var fileName = paths[fileNumber];
-        if (fileName && fileName.indexOf("lang_") != -1) {
-            var langArray = fileName.split("lang_");
-            var langName = langArray[langArray.length - 1].split(".json")[0];
+        var langName = paths[fileNumber];
+        console.log("lang name = " + langName);
+        if ("~origin.json" != langName) {
             jsonFiles[langName] = data;
-            getFiles(paths, callback, fileNumber);
-            return;
         }
-
-        callback(jsonFiles);
+        getFiles(paths, callback, fileNumber);
     });
+}
+
+function isEmpty(obj) {
+    for (var prop in obj) {
+        if (obj.hasOwnProperty(prop))
+            return false;
+    }
+
+    return true && JSON.stringify(obj) === JSON.stringify({});
 }

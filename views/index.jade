@@ -2,53 +2,65 @@ extends layout
 
 block content
     
-        .row.row-offcanvas.row-offcanvas-right
-
-            form(id="saveForm", class="col-xs-12 col-sm-9", action="/save", method="post")
+        .row.row-offcanvas.row-offcanvas-right            
+            .col-xs-12.col-sm-9
+            
                 if(error)
-                    p(id="errorLog", class="small alert alert-danger") #{error} 
-                
-                p(id="notification", class="small text-muted")
+                        p(id="errorLog", class="small alert alert-danger") #{error} 
 
-                table(id="translationTable")
-                    thead
-                        tr
-                            th
-                                h4 origin 
-                                a(href="json/origin.json", class="small", download) download
+                if(!origin || !langArray)
+                    .uploadFiles
+                        form(action="/upload", method="post", enctype="multipart/form-data")
+                            input(type="file", name="origin")
+                            input(type="file", name="lang")
+                            p
+                                input(id="uploadButton", type="submit", class="btn btn-primary")
 
-                            each translation, lang in langArray
-                                th 
-                                    h4 #{lang} 
-                                    a(href="json/lang_" + lang + ".json", class="small", download) download
+                else
+            
+                    form(id="saveForm", action="/save", method="post")
+                    
+                        p(id="notification", class="small text-muted")
 
-                    tbody
-                        each value, key in origin
-                            tr(class="keyRow")
-                                td(colspan=99, class="key") #{key} :
-                            tr(class="inputRow")
-                                td
-                                    input(class=key, name="origin_" + key, type="text", placeholder=value, originalValue=origin[key], value=origin[key])
+                        table(id="translationTable")
+                            thead
+                                tr
+                                    th
+                                        h4 origin file 
+                                        a(href="json/origin.json", class="small", download) download
 
                                     each translation, lang in langArray
-                                        //td #{translation}
-                                        td(class=!translation[key] ? "dif " : "")
-                                            input(class=key, name=lang + "_" + key, type="text", placeholder=value, originalValue=translation[key], value=translation[key])
+                                        th 
+                                            h4 #{lang} 
+                                            a(href="json/" + lang, class="small", download) download
 
-                        tr(id="resetButtons")
-                            td
+                            tbody
+                                each value, key in origin
+                                    tr(class="keyRow")
+                                        td(colspan=99, class="key") #{key} :
+                                    tr(class="inputRow")
+                                        td
+                                            input(class=key, name="~origin.json__" + key, type="text", placeholder=value, originalValue=origin[key], value=origin[key])
 
-                            each translation, lang in langArray
-                                td 
-                                    input(class="btn btn-secondary resetButton", lang=lang, type="button", value="Reset")
+                                            each translation, lang in langArray
+                                                //td #{translation}
+                                                td(class=!translation[key] ? "dif " : "")
+                                                    input(class=key, name=lang + "__" + key, type="text", placeholder=value, originalValue=translation[key], value=translation[key])
 
-                br
-                input(id="saveButton", class="btn btn-primary", type="submit", value="Save")
-                input(id="showButton", class="btn btn-secondary", type="button", value="Show All")
+                                tr(id="resetButtons")
+                                    td
 
-                br
-                br
-                p(class="small text-muted") request time = #{time} ms    
+                                    each translation, lang in langArray
+                                        td 
+                                            input(class="btn btn-secondary resetButton", lang=lang, type="button", value="Reset")
+
+                        br
+                        input(id="saveButton", class="btn btn-primary", type="submit", value="Save")
+                        input(id="showButton", class="btn btn-secondary", type="button", value="Show All")
+
+                        br
+                        br
+                        p(class="small text-muted") request time = #{time} ms    
 
 
             div(id="lateral", class="col-xs-6 col-sm-3 small")

@@ -12,7 +12,7 @@ router.post('/', function (req, res) {
     //LOAD FILES
     var files = {};
     for (var name in req.body) {
-        var lang = name.split("_").shift();
+        var lang = name.split("__").shift();
         if (!lang) {
             console.log("!lang");
             continue;
@@ -23,10 +23,10 @@ router.post('/', function (req, res) {
             continue;
         }
 
-        var file = "public/json/lang_" + lang + ".json";
-        if ("origin" == lang) {
-            file = "public/json/origin.json";
-        }
+        var file = "public/json/" + lang;
+//        if ("origin" == lang) {
+//            file = "public/json/origin.json";
+//        }
 
         var file_content;
         try {
@@ -46,14 +46,23 @@ router.post('/', function (req, res) {
         var value = req.body[name];
         //if (value && !/^\s*$/.test(value)) { //!empty
 
-        var nameArray = name.split("_");
+        var nameArray = name.split("__");
         var lang = nameArray.shift();
-        var id = nameArray.join("_");
+        var id = nameArray.join("__");
+        if(!id){
+            console.log("!id on " + name);
+            continue;
+        }
         if (!lang) {
+            console.log("!lang on " + name);
             continue;
         }
 
         var content = files[lang];
+        if(!content){
+            console.log("!content on " + name + " with lang.");
+            continue;
+        }
         var resultJson = "";
         if (Object.prototype.toString.call(content) === '[object Array]') {
             //if exists
@@ -120,7 +129,7 @@ router.post('/', function (req, res) {
             resultJson = "{" + jsonArray.join(",") + "}";
         }
 
-        var file = "public/json/lang_" + lang + ".json";
+        var file = "public/json/" + lang;
         if ("origin" == lang) {
             file = "public/json/origin.json";
         }
