@@ -1,6 +1,11 @@
 # i18n
 Herramienta para edición de archivos de traducción en .json de multiples formatos.
 
+###Entorno
+Aplicación web escrita en **node.js** con **express**, template **jade**, procesador de css **LESS** y usa las librerías **bootstrap** y **ReactJS**.
+
+No incluye jQuery.
+
 ###Archivos de traducción
 La **herramienta** permite manejar varios **archivos de traducción**, uno por idioma, y permite **añadir** las traducciones que faltan o  **modificar** existentes.
 
