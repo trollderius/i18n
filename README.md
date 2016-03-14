@@ -33,4 +33,4 @@ En caso de que no hayan traducciones pendientes se muestran todos los identifica
 * Un valor puede ser un campo vacío.
 
 ###Por desarrollar:
-* Hacer un test exahustivo para crear un manejador de errores que funcione correctamente.
+* Hacer un test exahustivo para crear un manejador de errores que corrija archivos dañados.
