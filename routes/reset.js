@@ -22,13 +22,8 @@ router.get('/', function (req, res) {
 //    var duration = Date.now() - start;
 //    res.redirect('/?t=' + duration);
 
-    rmDir(__dirname + "/../public/json/");
-    res.redirect('/');
-});
+    var dirPath = __dirname + "/../public/json/";
 
-module.exports = router;
-
-rmDir = function (dirPath) {
     try {
         var files = fs.readdirSync(dirPath);
     } catch (e) {
@@ -39,4 +34,8 @@ rmDir = function (dirPath) {
         var filePath = dirPath + '/' + files[i];
         fs.unlinkSync(filePath);
     }
-};
+
+    res.redirect('/');
+});
+
+module.exports = router;

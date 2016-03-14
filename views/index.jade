@@ -47,16 +47,18 @@ block content
                                                 td(class=!translation[key] ? "dif " : "")
                                                     input(class=key, name=lang + "__" + key, type="text", placeholder=value, originalValue=translation[key], value=translation[key])
 
-                                tr(id="resetButtons")
+                                //tr(id="resetButtons")
                                     td
 
                                     each translation, lang in langArray
                                         td 
                                             input(class="btn btn-secondary resetButton", lang=lang, type="button", value="Reset")
-
+                          
                         br
                         input(id="saveButton", class="btn btn-primary", type="submit", value="Save")
                         input(id="showButton", class="btn btn-secondary", type="button", value="Show All")
+                        
+                        input(class="btn btn-secondary resetButton", style="float:right", type="button", value="Reset")    
 
                         br
                         br
