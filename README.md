@@ -7,7 +7,7 @@ Aplicación web escrita en **node.js** con **express**, template **jade**, proce
 No incluye jQuery.
 
 ###Archivos de traducción
-La **herramienta** permite manejar varios **archivos de traducción**, uno por idioma, y permite **añadir** las traducciones que faltan o  **modificar** existentes.
+La herramienta permite manejar varios **archivos de traducción**, uno por idioma, y permite **añadir** las traducciones que faltan o  **modificar** existentes.
 
 Los archivos de traducción se encuentran en la carpeta **public/json**.
 
