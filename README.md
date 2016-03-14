@@ -9,9 +9,9 @@ No incluye jQuery.
 ###Archivos de traducción
 La herramienta permite manejar varios **archivos de traducción**, uno por idioma, y permite **añadir** las traducciones que faltan o  **modificar** existentes.
 
-Los archivos de traducción se encuentran en la carpeta **public/json**.la
+Los archivos de traducción se encuentran en la carpeta **public/json**.
 
-El archivo guía en el idioma original de la aplicación se debe adjuntar primero y se podrá descargar con el nombre de ~origin.json.
+El archivo guía en el idioma original de la aplicación se debe adjuntar primero y se podrá descargar con el nombre de ```~origin.json```.
 
 ###Interfaz usuario
 La aplicación muestra por cada fila el nombre del **identificador**, y bajo este y por columnas las traducciones por cada idioma.
