@@ -1,6 +1,7 @@
 # i18n
 Herramienta para edición de archivos de traducción en .json de multiples formatos.
 
+###Archivos de traducción
 La **herramienta** permite manejar varios **archivos de traducción**, uno por idioma, y permite **añadir** las traducciones que faltan o  **modificar** existentes.
 
 Los archivos de traducción se encuentran en la carpeta **public/json**.
@@ -9,6 +10,7 @@ El archivo guía en el idioma original de la aplicación debe llamarse ```"origi
 
 =======
 
+###Interfaz usuario
 La aplicación muestra por cada fila el nombre del **identificador**, y bajo este y por columnas las **traducciones** por cada idioma.
 Por defecto solo se muestran los identificadores **sin traducción** en todos los idiomas.
 En caso necesario aparece un botón que **muestra todos** los identificadores en caso de querer modificar traducciones **existentes**.
