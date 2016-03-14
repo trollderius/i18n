@@ -11,7 +11,7 @@ La herramienta permite manejar varios **archivos de traducción**, uno por idiom
 
 Los archivos de traducción se encuentran en la carpeta **public/json**.
 
-El archivo guía en el idioma original de la aplicación debe llamarse ```"origin.json"``` y el resto de archivos json de traducción deben tener el formato de ```"lang_" + ISO de idioma + ".json"```.
+El archivo guía en el idioma original de la aplicación se debe adjuntar primero y se podrá descargar con el nombre de ```~origin.json```.
 
 ###Interfaz usuario
 La aplicación muestra por cada fila el nombre del **identificador**, y bajo este y por columnas las traducciones por cada idioma.
@@ -24,7 +24,7 @@ Es posible **guardar** todas las modificaciones en diferentes archivos **simult�
 
 El **resumen** de archivos modificados se van añadiendo desde el localStorage a una barra lateral para rectificar posibles errores.
 
-Tambien es posible **resetear** por completo un archivo .json de traducción y en ese caso un pop-up pedirá confirmación _(excepto "orign.json")_.
+Tambien es posible **eliminar** los archivos subidos y en ese caso un pop-up pedirá confirmación.
 
 En caso de que no hayan traducciones pendientes se muestran todos los identificadores.
 
