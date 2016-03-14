@@ -24,7 +24,7 @@ Es posible **guardar** todas las modificaciones en diferentes archivos **simult�
 
 El **resumen** de archivos modificados se van añadiendo desde el localStorage a una barra lateral para rectificar posibles errores.
 
-Tambien es posible **resetear** por completo un archivo .json de traducción y en ese caso un pop-up pedirá confirmación _(excepto "orign.json")_.
+Tambien es posible **eliminar** los archivos subidos y en ese caso un pop-up pedirá confirmación.
 
 En caso de que no hayan traducciones pendientes se muestran todos los identificadores.
 
