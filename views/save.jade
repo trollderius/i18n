@@ -1,0 +1,14 @@
+extends layout
+
+block content
+
+    if(error)
+        p(id="errorLog", class="small alert alert-danger") #{error} 
+                    
+    p(class="small text-muted") request time: #{time} ms
+    
+    input(class="btn btn-primary", type="button", value="Back", onclick="location.pathname = '/'")
+    
+    p(id="log", class="small", style="margin-top: 30px") !{log}
+    
+    script(src='/javascripts/save.js')

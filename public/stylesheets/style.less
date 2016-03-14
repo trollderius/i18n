@@ -1,0 +1,90 @@
+
+#translationTable input::-webkit-input-placeholder {
+    color: rgb(255,120,120);
+}
+#translationTable input:-moz-placeholder {
+    color: rgb(255,120,120);
+}
+#translationTable input::-moz-placeholder {
+    color: rgb(255,120,120);
+}
+#translationTable input:-ms-input-placeholder {  
+    color: rgb(255,120,120);
+}
+
+.changed{
+    font-weight: bold;
+    color: green;
+}
+
+#translationTable tbody tr{
+    display: none;
+}
+#translationTable{
+    width: 100%;
+}
+
+#translationTable tbody input[type="text"]{
+    padding: 10px;
+    width: 100%;
+    /*box-sizing: border-box;*/
+}
+
+#translationTable th{    
+    text-align: center;
+
+    transition: width 300ms;
+    -o-transition: width 300ms;
+    -ms-transition: width 300ms;
+    -webkit-transition: width 300ms;
+}
+#translationTable th:hover{
+    background-color: rgb(235,235,235);
+}
+#translationTable th h4{
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+#resetButtons{
+    display: table-row !important;
+}
+#resetButtons td{
+    text-align: right;
+}
+#resetButtons input{
+    margin-top: 10px;
+}
+
+.key{
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+#lateral{
+    word-break: break-word;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-left: 1px solid #eee;
+}
+
+@media (max-width: 543px){
+    #lateral {
+        display:none;
+    }
+}
+
+#showButton{
+    margin-left: 10px;
+}
+
+#errorLog{
+    margin-top: 10px;
+}
