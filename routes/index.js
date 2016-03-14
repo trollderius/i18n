@@ -102,6 +102,7 @@ function getFiles(paths, callback, fileNumber) {
     
     if(paths[fileNumber][0] == "."){
         getFiles(paths, callback, fileNumber);
+        return;
     }
 
     getJSON("public/json/" + paths[fileNumber], function (data) {
@@ -122,13 +123,4 @@ function getFiles(paths, callback, fileNumber) {
         }
         getFiles(paths, callback, fileNumber);
     });
-}
-
-function isEmpty(obj) {
-    for (var prop in obj) {
-        if (obj.hasOwnProperty(prop))
-            return false;
-    }
-
-    return true && JSON.stringify(obj) === JSON.stringify({});
 }
