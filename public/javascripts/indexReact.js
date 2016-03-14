@@ -129,7 +129,7 @@ for (var i = 0; i < resetButtons.length; i++) {
         }).then((function (_this) {
             return function () {
                 location.href = location.origin + "/reset?lang=" + lang;
-                removePersistentValues();
+                removePersistentValues(true);
                 return $(_this).parent().remove();
             };
         })(this));

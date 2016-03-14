@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    
+
     var time = req.query.t;
     if (!time) {
         this.start = Date.now();
@@ -15,9 +15,9 @@ router.get('/', function (req, res) {
     getFiles(files, function (jsonArray) {
 
         //original
-        getJSON("public/json/origin.json", function (origin, err) {
-            console.log("error:  " + err)
+        getJSON("public/json/origin.json", function (origin, err) {            
             if (err) {
+                console.log("error:  " + err);
                 error += err;
             }
 
@@ -78,17 +78,17 @@ function isArray(data) {
 
 var jsonFiles = {};
 function getFiles(paths, callback, fileNumber) {
-    if("undefined" == typeof fileNumber){
-        fileNumber = 0;        
-    }else{
+    if ("undefined" == typeof fileNumber) {
+        fileNumber = 0;
+    } else {
         fileNumber++;
-    }    
+    }
 
     if (!paths[fileNumber]) {
         callback(jsonFiles);
         return;
     }
-    
+
     getJSON("public/json/" + paths[fileNumber], function (data) {
         //parse
         try {
@@ -108,7 +108,7 @@ function getFiles(paths, callback, fileNumber) {
             getFiles(paths, callback, fileNumber);
             return;
         }
-        
+
         callback(jsonFiles);
     });
 }

@@ -9,10 +9,8 @@ window.onbeforeunload = function () {
         return;
     }
     var inputs = document.getElementById("translationTable").getElementsByTagName("input");
-    //console.log(inputs);
     for (var i = 0; i < inputs.length; i++) {
         var id = inputs[i].getAttribute("name");
-        //console.log(id)
         localStorage.setItem("persistent_" + id, inputs[i].value);
     }
 };
@@ -72,8 +70,10 @@ document.getElementById('saveForm').onsubmit = function () {
 
     for (var i = 0; i < allInputs.length; i++) {
         var input = allInputs[i];
-        if (input.value == input.getAttribute("originalvalue")) {
+        if (input.getAttribute("class").indexOf("changed") == -1) {
             input.setAttribute('name', '');
+        } else {
+            console.log(input.value + " != " + input.getAttribute("originalvalue"));
         }
     }
 };

@@ -4,6 +4,7 @@ var router = express.Router();
 
 router.post('/', function (req, res) {
     var start = Date.now();
+    console.log(req.body);
 
     var log = "";
     var error = "";
@@ -13,10 +14,12 @@ router.post('/', function (req, res) {
     for (var name in req.body) {
         var lang = name.split("_").shift();
         if (!lang) {
+            console.log("!lang");
             continue;
         }
         //already loaded
         if (files[lang]) {
+            console.log("already loaded");
             continue;
         }
 

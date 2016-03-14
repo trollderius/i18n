@@ -1,12 +1,14 @@
 
-function removePersistentValues() {
+function removePersistentValues(defaultValues) {
     for (var key in localStorage) {
         if (key.match(/^persistent_/)) {
             localStorage.removeItem(key);
-            var name = key.split("persistent_")[1];
-            var input = document.querySelectorAll('[name="' + name + '"]')[0];
-            if (input) {
-                input.value = input.getAttribute("originalvalue") || "";
+            if (defaultValues) {
+                var name = key.split("persistent_")[1];
+                var input = document.querySelectorAll('[name="' + name + '"]')[0];
+                if (input) {
+                    input.value = input.getAttribute("originalvalue") || "";
+                }
             }
         }
     }
