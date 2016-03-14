@@ -1,7 +1,7 @@
 #
 nbproject/
 node_modules/
-
+/json/*.*
 
 # Windows image file caches
 Thumbs.db
