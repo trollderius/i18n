@@ -1,5 +1,5 @@
 # i18n
-Herramienta para edición de archivos de traducción en .json de multiples formatos.
+**Herramienta para edición de archivos de traducción en .json de multiples formatos.**
 
 ###Entorno
 Aplicación web escrita en **node.js** con **express**, template **jade**, procesador de css **LESS** y usa las librerías **bootstrap** y **ReactJS**.
