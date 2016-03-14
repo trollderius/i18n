@@ -6,6 +6,7 @@ La **herramienta** permite manejar varios **archivos de traducción**, uno por i
 Los archivos de traducción se encuentran en la carpeta **public/json**.
 
 El archivo guía en el idioma original de la aplicación debe llamarse ```"origin.json"``` y el resto de archivos json de traducción deben tener el formato de ```"lang_" + ISO + ".json"```.
+
 =======
 
 La aplicación muestra por cada fila el nombre del **identificador**, y bajo este y por columnas las **traducciones** por cada idioma.
