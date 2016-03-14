@@ -8,8 +8,6 @@ Los archivos de traducción se encuentran en la carpeta **public/json**.
 
 El archivo guía en el idioma original de la aplicación debe llamarse ```"origin.json"``` y el resto de archivos json de traducción deben tener el formato de ```"lang_" + ISO de idioma + ".json"```.
 
-=======
-
 ###Interfaz usuario
 La aplicación muestra por cada fila el nombre del **identificador**, y bajo este y por columnas las **traducciones** por cada idioma.
 Por defecto solo se muestran los identificadores **sin traducción** en todos los idiomas.
